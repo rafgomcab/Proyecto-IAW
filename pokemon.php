@@ -2,7 +2,7 @@
 //Conectamos con  la base de datos
 require 'conexion.php';
 //Realizamos la consulta de nuestra tabla para poder obtener los datos que hay guardados
-$sql = "SELECT *  from clubDeportivo;";
+$sql = "SELECT *  from especie;";
 //Ejecutamos la consulta
 $resultado = $mysqli->query($sql);
 
@@ -24,7 +24,7 @@ $resultado = $mysqli->query($sql);
 		<script src="js/bootstrap.min.js" ></script>
 		<script src="js/jquery.dataTables.min.js" ></script>
 		
-		<title>LListado Pokemon</title>
+		<title>Listado Pokemon</title>
 		
 		<script>
 			// DataTables
@@ -35,7 +35,46 @@ $resultado = $mysqli->query($sql);
 		
 </head>
 <body>
-    <h1>Esto es una prueba de que se sube a github</h1>
-    <h2>subida 2</h2>
+<div class="container">
+			<div class="row">
+				<h1>Listado Pokemon</h1>
+			</div>
+			<br>
+			
+			
+			
+			<table id="tabla" class="display" style="width:100%">
+				<thead>
+					<tr>
+						<th>Nombre</th>
+						<th>Tipo 1</th>
+						<th>Tipo 2</th>
+						<th>Región</th>
+						<th></th>
+					</tr>
+				</thead>
+				<tbody>
+					<?php
+						while($fila = $resultado->fetch_assoc()){
+						echo "<tr>";
+							echo "<td>",$fila['nombre'],"</td>";
+							echo "<td>",$fila['tipo1'],"</td>";
+							echo "<td>",$fila['tipo2'],"</td>";
+							echo "<td>",$fila['region'],"</td>";
+							echo "<td><a href= 'estadisticas.php?id=$fila[id]' class='btn btn-warning'>Ver individuos</a></td>";
+						echo "</tr>";
+						}
+					?>
+				</tbody>
+			</table>
+			
+			<div class="row" style="display:flex; justify-content: space-between";>
+				<!-- Registrar -->
+				<p><a href="registrarPokemon.php" class="btn btn-primary">Registrar Pokémon</a></p>
+				<p><a href="combate.php" class="btn btn-primary">Ver Combates</a></p>
+			</div>
+			<br>
+		</div>
+	</div>
 </body>
 </html>
