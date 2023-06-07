@@ -4,10 +4,19 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prueba</title>
+    <link rel="stylesheet" href="/css/portada.css">
+    <title>Portada</title>
 </head>
 <body>
-    <h1>Esto es una prueba de que se sube a github</h1>
-    <h2>subida 2</h2>
+    <header>
+        <h1>Torneo Pokémon</h1>
+    </header>
+
+    <nav>
+        <h2>Ver Pokémon</h2>
+        <h2>Ver Combates</h2>
+    </nav>
+    
+    
 </body>
 </html>
