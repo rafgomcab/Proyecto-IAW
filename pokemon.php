@@ -2,7 +2,7 @@
 //Conectamos con  la base de datos
 require 'conexion.php';
 //Realizamos la consulta de nuestra tabla para poder obtener los datos que hay guardados
-$sql = "SELECT *  from clubDeportivo;";
+$sql = "SELECT *  from proye;";
 //Ejecutamos la consulta
 $resultado = $mysqli->query($sql);
 
@@ -24,7 +24,7 @@ $resultado = $mysqli->query($sql);
 		<script src="js/bootstrap.min.js" ></script>
 		<script src="js/jquery.dataTables.min.js" ></script>
 		
-		<title>LListado Pokemon</title>
+		<title>Listado Pokemon</title>
 		
 		<script>
 			// DataTables
