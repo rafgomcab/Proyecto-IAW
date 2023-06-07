@@ -13,14 +13,14 @@ body{
 }
 header{
     justify-self: center;
-    padding: 20px;
+    padding: 10px;
 }
 
-nav{
+body nav{
     display: flex;
     justify-content: center;
     
-    padding: 20px;
+
 
 }
 h1{
