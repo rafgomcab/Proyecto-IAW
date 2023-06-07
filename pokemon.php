@@ -2,7 +2,7 @@
 //Conectamos con  la base de datos
 require 'conexion.php';
 //Realizamos la consulta de nuestra tabla para poder obtener los datos que hay guardados
-$sql = "SELECT *  from proye;";
+$sql = "SELECT *  from pokemon;";
 //Ejecutamos la consulta
 $resultado = $mysqli->query($sql);
 
@@ -35,7 +35,6 @@ $resultado = $mysqli->query($sql);
 		
 </head>
 <body>
-    <h1>Esto es una prueba de que se sube a github</h1>
-    <h2>subida 2</h2>
+	
 </body>
 </html>

@@ -13,8 +13,8 @@
     </header>
 
     <nav>
-        <h2><a href="pokemon.php">Ver Pokémon</a></h2>
-        <h2><a href="combate.php">Ver Combates</a></h2>
+        <a href="pokemon.php">Ver Pokémon</a>
+        <a href="combate.php">Ver Combates</a>
     </nav>
     
     
