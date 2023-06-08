@@ -40,7 +40,7 @@ $resultado2 = $mysqli->query($sql);
                         <select name="contrincante1" id="contrincante1" class="custom-select" required>
                             <?php
                             while ($fila = $resultado->fetch_assoc()) {
-                                echo "<option value=", $fila['nombre'], ">", $fila['nombre'], "</option>";
+                                echo "<option value=", $fila['id'], ">", $fila['nombre'], "</option>";
                             }
                             ?>
                         </select>
@@ -52,7 +52,7 @@ $resultado2 = $mysqli->query($sql);
                         <select name="contrincante2" id="contrincante2" class="custom-select" required>
                             <?php
                             while ($fila2 = $resultado2->fetch_assoc()) {
-                                echo "<option value=", $fila2['nombre'], ">", $fila2['nombre'], "</option>";
+                                echo "<option value=", $fila2['id'], ">", $fila2['nombre'], "</option>";
                             }
                             ?>
                         </select>

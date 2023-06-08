@@ -15,22 +15,24 @@
 		//Conectamos a la base de datos
 		require 'conexion.php';
 		//Guardamos las variables de nuestro formulario
-        $contrincante1=$_POST['contrincante1'];
-        $contrincante2=$_POST['contrincante2'];
+        $idpk1=$_POST['contrincante1'];
+        $idpk2=$_POST['contrincante2'];
+        $pokemon1="";
+        $pokemon2="";
         $fecha=$_POST['fecha'];
         //inicializamos esta variable
         $poder1=0;
         $poder2=0;
 
         //Añadimos la excepción de si los dos contrincantes fueran el mismo
-        if($contrincante1==$contrincante2){
+        if($idpk1==$idpk2){
             echo "<p class=' alert alert-danger'>Error al insertar. No puede combatirse a si mismo</p>";
             echo "<p><a href='crearCombate.php' class='btn btn-primary'>Regresar al combate</a></p>";
         } else {
             //Calculamos cuál sería el ganador
             //Creamos dos consultas una para cada adversario
-            $datos1="select * from pokemon where nombre like '$contrincante1';";
-            $datos2="select * from pokemon where nombre like '$contrincante2';";
+            $datos1="select * from pokemon where id like '$idpk1';";
+            $datos2="select * from pokemon where id like '$idpk2';";
             //Ejecutamos las consultas
             $cons1=$mysqli->query($datos1);
             $cons2=$mysqli->query($datos2);
@@ -38,20 +40,22 @@
             //Esta fuerza será la suma de Ataque, Defensa, Velocidad y el nivel dividido por 4
             while($fila=$cons1->fetch_assoc()){
                 $poder1= $fila['ataque'] + $fila['defensa'] + $fila['velocidad'] + ($fila['Nivel']/4);
+                $pokemon1= $fila['nombre'];
             }
             while($fila2=$cons2->fetch_assoc()){
                 $poder2= $fila2['ataque'] + $fila2['defensa'] + $fila2['velocidad'] + ($fila2['Nivel']/4);
+                $pokemon2= $fila2['nombre'];
             }
             //Una vez tenemos las fuerzas comparamos los resultados
             if($poder1==$poder2){
                 $ganador="Empate";
             } else if ($poder1>$poder2){
-                $ganador=$contrincante1;
+                $ganador=$pokemon1;
             } else {
-                $ganador=$contrincante2;
+                $ganador=$pokemon2;
             }
             //Elaboramos la sentencia SQL para insertar los datos en la base de datos
-		    $sql= "INSERT INTO combates(idpk1, idpk2, pokemon1, pokemon2, fecha, ganador) values('$contrincante1', '$contrincante2', '$fecha', '$ganador')";
+		    $sql= "INSERT INTO combates(idpk1, idpk2, pokemon1, pokemon2, fecha, ganador) values('$idpk1', '$idpk2', '$pokemon1', '$pokemon2', '$fecha', '$ganador')";
 		    //Llevamos a cabo la consulta
 		    $res = $mysqli->query($sql);
 		    //Analizamos el resultado

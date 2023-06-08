@@ -48,7 +48,6 @@ $resultado = $mysqli->query($sql);
 						<th>Contrincante 2</th>
 						<th>Fecha</th>
 						<th>Ganador</th>
-                        <th></th>
 					</tr>
 				</thead>
 				<tbody>
@@ -59,7 +58,6 @@ $resultado = $mysqli->query($sql);
 							echo "<td style='background-color: lightyellow;'>",$fila['pokemon2'],"</td>";
 							echo "<td>",$fila['fecha'],"</td>";
 							echo "<td style='background-color: lightgreen;'>",$fila['ganador'],"</td>";
-                            echo "<td><a href= 'actualizaCombate.php?pokemon1=$fila[pokemon1]&pokemon2=$fila[pokemon2]&ganador=$fila[ganador]' class='btn btn-primary'>Actualiza estadísticas</a></td>";
 						echo "</tr>";
 						}
 					?>
@@ -69,6 +67,7 @@ $resultado = $mysqli->query($sql);
 			<div class="row" style="display:flex; justify-content: space-between";>
                 <div class="row">
                     <p><a href="crearCombate.php" class="btn btn-primary">Crear combate</a></p>
+					<p><a href= 'actualizaCombate.php' class='btn btn-primary'>Actualiza estadísticas</a></p>
                 </div>
 				<!-- Registrar -->
                 <div class="row">
