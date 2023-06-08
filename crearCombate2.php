@@ -18,7 +18,7 @@
         $contrincante1=$_POST['contrincante1'];
         $contrincante2=$_POST['contrincante2'];
         $fecha=$_POST['fecha'];
-
+        //inicializamos esta variable
         $poder1=0;
         $poder2=0;
 
@@ -51,7 +51,7 @@
                 $ganador=$contrincante2;
             }
             //Elaboramos la sentencia SQL para insertar los datos en la base de datos
-		    $sql= "INSERT INTO combates(pokemon1, pokemon2, fecha, ganador) values('$contrincante1', '$contrincante2', '$fecha', '$ganador')";
+		    $sql= "INSERT INTO combates(idpk1, idpk2, pokemon1, pokemon2, fecha, ganador) values('$contrincante1', '$contrincante2', '$fecha', '$ganador')";
 		    //Llevamos a cabo la consulta
 		    $res = $mysqli->query($sql);
 		    //Analizamos el resultado
@@ -63,10 +63,7 @@
                 echo "<p><a href='combate.php' class='btn btn-primary'>Regresar</a></p>";
             }
         }
-
-		
-			
-			
+        
 		?>
 
 	</body>
