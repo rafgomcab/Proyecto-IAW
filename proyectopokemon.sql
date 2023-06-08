@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 08-06-2023 a las 17:17:31
+-- Tiempo de generación: 08-06-2023 a las 21:21:26
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -42,12 +42,9 @@ CREATE TABLE `combates` (
 --
 
 INSERT INTO `combates` (`id_combate`, `idpk1`, `idpk2`, `pokemon1`, `pokemon2`, `fecha`, `ganador`) VALUES
-(1, 2, 12, 'Pichuli', 'Edgy', '2013-06-03', 'Pichuli'),
-(2, 2, 4, 'Rayito', 'Pichuli', '2023-06-07', 'Pichuli'),
-(3, 2, 11, 'Edgy', 'dsadas', '2023-05-30', 'Edgy'),
-(8, 12, 2, 'Edgy', 'Pichuli', '2022-09-01', 'Pichuli'),
-(9, 12, 2, 'Edgy', 'Pichuli', '2022-10-12', 'Pichuli'),
-(10, 13, 2, 'Ganador', 'Pichuli', '2023-05-29', 'Ganador');
+(32, 15, 18, 'DugChamp', 'Pablo', '2010-10-10', 'DugChamp'),
+(33, 15, 17, 'DugChamp', 'Tobi', '1025-04-07', 'DugChamp'),
+(34, 16, 15, 'DugGod', 'DugChamp', '1478-12-15', 'DugGod');
 
 -- --------------------------------------------------------
 
@@ -68,10 +65,9 @@ CREATE TABLE `especie` (
 --
 
 INSERT INTO `especie` (`id`, `nombre`, `tipo1`, `tipo2`, `region`) VALUES
-(1, 'Bulbasaur', 'Planta', 'Veneno', 'Kanto'),
-(2, 'Ivysaur', 'Planta', 'Veneno', 'Kanto'),
-(3, 'Grovyle', 'Planta', '', 'Hoenn'),
-(5, 'Pikachu', 'Eléctrico', '', 'Kanto');
+(6, 'Growlithe', 'Fuego', '', 'Kanto'),
+(7, 'Walrein', 'Agua', 'Hielo', 'Hoenn'),
+(8, 'Dugtrio', 'Tierra', '', 'Kanto');
 
 -- --------------------------------------------------------
 
@@ -96,11 +92,12 @@ CREATE TABLE `pokemon` (
 --
 
 INSERT INTO `pokemon` (`id`, `especie`, `nombre`, `ataque`, `defensa`, `velocidad`, `Nivel`, `combates_ganados`, `combates_perdidos`) VALUES
-(2, 'Bulbasaur', 'Pichuli', 5, 5, 5, 50, 0, 1),
-(4, 'Bulbasaur', 'Rayito Mcqueen', 1, 1, 10, 100, 0, 0),
-(11, 'Bulbasaur', 'dsadas', 1, 2, 3, 12, 0, 0),
-(12, 'Grovyle', 'Edgy', 5, 5, 2, 50, 1, 3),
-(13, 'Bulbasaur', 'Ganador', 10, 10, 10, 100, 1, 0);
+(14, 'Dugtrio', 'Dug1', 5, 5, 5, 20, 0, 0),
+(15, 'Dugtrio', 'DugChamp', 9, 9, 9, 50, 2, 1),
+(16, 'Dugtrio', 'DugGod', 10, 10, 10, 100, 1, 0),
+(17, 'Growlithe', 'Tobi', 8, 3, 6, 40, 0, 1),
+(18, 'Growlithe', 'Pablo', 5, 2, 3, 60, 0, 1),
+(19, 'Walrein', 'CR7', 8, 7, 5, 90, 0, 0);
 
 --
 -- Índices para tablas volcadas
@@ -133,19 +130,19 @@ ALTER TABLE `pokemon`
 -- AUTO_INCREMENT de la tabla `combates`
 --
 ALTER TABLE `combates`
-  MODIFY `id_combate` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id_combate` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
 -- AUTO_INCREMENT de la tabla `especie`
 --
 ALTER TABLE `especie`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT de la tabla `pokemon`
 --
 ALTER TABLE `pokemon`
-  MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
