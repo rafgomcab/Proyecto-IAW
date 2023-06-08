@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 08-06-2023 a las 14:44:59
+-- Tiempo de generación: 08-06-2023 a las 17:17:31
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -29,6 +29,8 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `combates` (
   `id_combate` int(5) NOT NULL,
+  `idpk1` int(5) NOT NULL,
+  `idpk2` int(5) NOT NULL,
   `pokemon1` varchar(30) NOT NULL,
   `pokemon2` varchar(30) NOT NULL,
   `fecha` date NOT NULL,
@@ -39,10 +41,13 @@ CREATE TABLE `combates` (
 -- Volcado de datos para la tabla `combates`
 --
 
-INSERT INTO `combates` (`id_combate`, `pokemon1`, `pokemon2`, `fecha`, `ganador`) VALUES
-(1, 'Pichuli', 'Edgy', '2013-06-03', 'Pichuli'),
-(2, 'Rayito', 'Pichuli', '2023-06-07', 'Pichuli'),
-(3, 'Edgy', 'dsadas', '2023-05-30', 'Edgy');
+INSERT INTO `combates` (`id_combate`, `idpk1`, `idpk2`, `pokemon1`, `pokemon2`, `fecha`, `ganador`) VALUES
+(1, 2, 12, 'Pichuli', 'Edgy', '2013-06-03', 'Pichuli'),
+(2, 2, 4, 'Rayito', 'Pichuli', '2023-06-07', 'Pichuli'),
+(3, 2, 11, 'Edgy', 'dsadas', '2023-05-30', 'Edgy'),
+(8, 12, 2, 'Edgy', 'Pichuli', '2022-09-01', 'Pichuli'),
+(9, 12, 2, 'Edgy', 'Pichuli', '2022-10-12', 'Pichuli'),
+(10, 13, 2, 'Ganador', 'Pichuli', '2023-05-29', 'Ganador');
 
 -- --------------------------------------------------------
 
@@ -91,10 +96,11 @@ CREATE TABLE `pokemon` (
 --
 
 INSERT INTO `pokemon` (`id`, `especie`, `nombre`, `ataque`, `defensa`, `velocidad`, `Nivel`, `combates_ganados`, `combates_perdidos`) VALUES
-(2, 'Bulbasaur', 'Pichuli', 5, 5, 5, 50, 0, 0),
+(2, 'Bulbasaur', 'Pichuli', 5, 5, 5, 50, 0, 1),
 (4, 'Bulbasaur', 'Rayito Mcqueen', 1, 1, 10, 100, 0, 0),
 (11, 'Bulbasaur', 'dsadas', 1, 2, 3, 12, 0, 0),
-(12, 'Grovyle', 'Edgy', 5, 5, 2, 50, 0, 0);
+(12, 'Grovyle', 'Edgy', 5, 5, 2, 50, 1, 3),
+(13, 'Bulbasaur', 'Ganador', 10, 10, 10, 100, 1, 0);
 
 --
 -- Índices para tablas volcadas
@@ -127,7 +133,7 @@ ALTER TABLE `pokemon`
 -- AUTO_INCREMENT de la tabla `combates`
 --
 ALTER TABLE `combates`
-  MODIFY `id_combate` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_combate` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT de la tabla `especie`
@@ -139,7 +145,7 @@ ALTER TABLE `especie`
 -- AUTO_INCREMENT de la tabla `pokemon`
 --
 ALTER TABLE `pokemon`
-  MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
