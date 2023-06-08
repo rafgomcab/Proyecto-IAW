@@ -70,8 +70,6 @@
                 $victorias2=$victorias2+1;
             
             }
-            echo $victorias1, $derrotas1;
-            echo $victorias2, $derrotas2;
             //Elaboramos la sentencia SQL para insertar los datos en la base de datos
 		    $sql= "INSERT INTO combates(idpk1, idpk2, pokemon1, pokemon2, fecha, ganador) values('$idpk1', '$idpk2', '$pokemon1', '$pokemon2', '$fecha', '$ganador')";
 		    //Actualizamos los datos automáticamente mediante la sentencia.
