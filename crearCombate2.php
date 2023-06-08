@@ -46,21 +46,47 @@
                 $poder2= $fila2['ataque'] + $fila2['defensa'] + $fila2['velocidad'] + ($fila2['Nivel']/4);
                 $pokemon2= $fila2['nombre'];
             }
+
+            //Obtenemos las victorias y derrotas que tienen los pokemon participantes
+            $vicpoke1 = "select combates_ganados from pokemon where nombre like '$pokemon1'";
+            $resvicPoke1= $mysqli->query($vicpoke1);
+
+            $vicpoke2 = "select combates_ganados from pokemon where nombre like '$pokemon2'";
+            $resvicPoke2= $mysqli->query($vicpoke2);
+
+            $derrpoke1 = "select combates_perdidos from pokemon where nombre like '$pokemon1'";
+            $resderrpoke1 = $mysqli->query($derrpoke1);
+
+            $derrpoke2 = "select combates_perdidos from pokemon where nombre like '$pokemon2'";
+            $resderrpoke2 = $mysqli->query($derrpoke2);
+            
+            //Una vez obtenidas las victorias y derrotas de cada uno, actualizamos sus estadisticas.
             //Una vez tenemos las fuerzas comparamos los resultados
             if($poder1==$poder2){
                 $ganador="Empate";
             } else if ($poder1>$poder2){
                 $ganador=$pokemon1;
+                $resvicPoke1+=1;
+                $resderrpoke2+=1;
             } else {
                 $ganador=$pokemon2;
+                $resvicPoke2+=1;
+                $resderrpoke1+=1;
             }
             //Elaboramos la sentencia SQL para insertar los datos en la base de datos
 		    $sql= "INSERT INTO combates(idpk1, idpk2, pokemon1, pokemon2, fecha, ganador) values('$idpk1', '$idpk2', '$pokemon1', '$pokemon2', '$fecha', '$ganador')";
-		    //Llevamos a cabo la consulta
+		    //Actualizamos los datos automáticamente mediante la sentencia.
+            $sqlActuPoke1 = "update pokemon set combates_ganados = $resvicPoke1, combates_perdidos = $resderrPoke1 where nombre like '$pokemon1';";
+
+            $sqlActuPoke2 = "update pokemon set combates_ganados = $resvicPoke2, combates_perdidos = $resderrPoke2 where nombre like '$pokemon2';";
+            //Llevamos a cabo la consulta
 		    $res = $mysqli->query($sql);
+
+
 		    //Analizamos el resultado
+    
 		    if($res>0){
-                echo "<p class='alert alert-primary'>Ha ganado $ganador</p>";
+                echo "<p class='alert alert-primary'>Resultado: $ganador</p>";
                 echo "<p><a href='combate.php' class='btn btn-primary'>Regresar</a></p>";
             }else{
                 echo "<p class=' alert alert-primary'>Error al insertar</p>";

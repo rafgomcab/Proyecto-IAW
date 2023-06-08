@@ -67,7 +67,6 @@ $resultado = $mysqli->query($sql);
 			<div class="row" style="display:flex; justify-content: space-between";>
                 <div class="row">
                     <p><a href="crearCombate.php" class="btn btn-primary">Crear combate</a></p>
-					<p><a href= 'actualizaCombate.php' class='btn btn-primary'>Actualiza estadísticas</a></p>
                 </div>
 				<!-- Registrar -->
                 <div class="row">
