@@ -41,8 +41,6 @@ $resultado = $mysqli->query($sql);
 			</div>
 			<br>
 			
-			
-			
 			<table id="tabla" class="display" style="width:100%">
 				<thead>
 					<tr>
@@ -61,7 +59,7 @@ $resultado = $mysqli->query($sql);
 							echo "<td>",$fila['tipo1'],"</td>";
 							echo "<td>",$fila['tipo2'],"</td>";
 							echo "<td>",$fila['region'],"</td>";
-							echo "<td><a href= 'estadisticas.php?id=$fila[id]' class='btn btn-warning'>Ver individuos</a></td>";
+							echo "<td><a href= 'estadisticas.php?especie=$fila[nombre]' class='btn btn-warning'>Ver individuos</a></td>";
 						echo "</tr>";
 						}
 					?>
