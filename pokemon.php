@@ -41,8 +41,6 @@ $resultado = $mysqli->query($sql);
 			</div>
 			<br>
 			
-			
-			
 			<table id="tabla" class="display" style="width:100%">
 				<thead>
 					<tr>
