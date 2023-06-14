@@ -49,6 +49,8 @@ $resultado = $mysqli->query($sql);
 						<th>Tipo 2</th>
 						<th>Región</th>
 						<th></th>
+						<th></th>
+						<th></th>
 					</tr>
 				</thead>
 				<tbody>
@@ -60,13 +62,15 @@ $resultado = $mysqli->query($sql);
 							echo "<td>",$fila['tipo2'],"</td>";
 							echo "<td>",$fila['region'],"</td>";
 							echo "<td><a href= 'estadisticas.php?especie=$fila[nombre]' class='btn btn-warning'>Ver individuos</a></td>";
+							echo "<td><a href= 'eliminarEspecie.php?id=$fila[id]' class='btn btn-danger'>Eliminar</a></td>";
+							echo "<td><a href= '' class='btn btn-warning'>Editar</a></td>";
 						echo "</tr>";
 						}
 					?>
 				</tbody>
 			</table>
 			
-			<div class="row" style="display:flex; justify-content: space-between";>
+			<div class="row" style="display:flex; justify-content: space-between; align-items: flex-end;";>
 				<!-- Registrar -->
 				<p><a href="registrarPokemon.php" class="btn btn-primary">Registrar Pokémon</a></p>
 				<p><a href="combate.php" class="btn btn-primary">Ver Combates</a></p>

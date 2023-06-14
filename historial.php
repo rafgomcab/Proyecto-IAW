@@ -1,8 +1,11 @@
 <?php
 //Conectamos con  la base de datos
 require 'conexion.php';
-//Realizamos la consulta de nuestra tabla para poder obtener los datos que hay guardados
-$sql = "SELECT *  from combates;";
+
+//Nos traemos el ID del pokemon seleccionado.
+$idpk=$_GET['id'];
+//Realizamos la consulta de nuestra tabla para poder obtener los datos que hay guardados para ese pokemon especifico
+$sql = "SELECT *  from combates where idpk1=$idpk or idpk2=$idpk;";
 //Ejecutamos la consulta
 $resultado = $mysqli->query($sql);
 
@@ -37,7 +40,7 @@ $resultado = $mysqli->query($sql);
 <body>
 <div class="container">
 			<div class="row">
-				<h1>Combates</h1>
+				<h1>Combates individuales</h1>
 			</div>
 			<br>
 			
