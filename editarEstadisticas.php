@@ -19,13 +19,13 @@ $id=$_GET['id'];
 	<!-- Bootstrap CSS -->
 	<link rel="stylesheet" href="css/bootstrap.min.css">
 
-	<title>Añadir Pokemon</title>
+	<title>Editar Estadísticas</title>
 </head>
 
 <body>
 	<div class="container">
 		<div class="row">
-			<h1>Añadir Pokemon entrenado</h1>
+			<h1>Editar estadísticas</h1>
 		</div>
 
 		<div class="row">

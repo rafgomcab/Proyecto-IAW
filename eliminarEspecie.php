@@ -19,6 +19,7 @@
 			//realizamos la sentencia para traernos los datos
 
 			$sql="DELETE from especie where id = $id";
+			$sql2="DELETE from pokemon;";
 
 			//Ejecutamos la consulta
 			$resultado=$mysqli->query($sql);
