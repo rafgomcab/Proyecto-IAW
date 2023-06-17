@@ -33,6 +33,7 @@
 						<!-- tipo1 -->
 						<label for="tipo1">Tipo 1: </label>
 						<select name="tipo1" id="tipo1" class="custom-select" required>
+							<option value=" ">Ninguno</option>
 							<option value="Agua">Agua</option>
 							<option value="Hielo">Hielo</option>
 							<option value="Tierra">Tierra</option>
@@ -47,6 +48,7 @@
 						<!-- tipo2 -->
 						<label for="tipo2">Tipo 2: </label>
 						<select name="tipo2" id="tipo2" class="custom-select" required>
+							<option value=" ">Ninguno</option>
 							<option value="Agua">Agua</option>
 							<option value="Hielo">Hielo</option>
 							<option value="Tierra">Tierra</option>

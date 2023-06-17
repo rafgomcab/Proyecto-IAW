@@ -56,6 +56,7 @@ $resultado = $mysqli->query($sql);
                         <th>Combates perdidos</th>
 						<th></th>
 						<th></th>
+						<th></th>
 					</tr>
 				</thead>
 				<tbody>
@@ -69,8 +70,9 @@ $resultado = $mysqli->query($sql);
                             echo "<td>",$fila['Nivel'],"</td>";
                             echo "<td>",$fila['combates_ganados'],"</td>";
                             echo "<td>",$fila['combates_perdidos'],"</td>";
-							echo "<td><a href= 'eliminarIndividual.php?id=$fila[id]&especie=$fila[especie]' class='btn btn-danger'>Eliminar</a></td>";
+							echo "<td><a href= 'eliminarIndividual.php?id=$fila[id]&especie=$fila[especie]' class='btn btn-danger'>Eliminar Pokémon</a></td>";
 							echo "<td><a href= 'historial.php?id=$fila[id]' class='btn btn-primary'>Ver Combates</a></td>";
+							echo "<td><a href= 'editarEstadisticas.php?id=$fila[id]&especie=$fila[especie]&nombre=$fila[nombre]&ataque=$fila[ataque]&defensa=$fila[defensa]&velocidad=$fila[velocidad]&Nivel=$fila[Nivel]' class='btn btn-secondary'>Editar estadísticas</a></td>";
 						echo "</tr>";
 						}
 					?>

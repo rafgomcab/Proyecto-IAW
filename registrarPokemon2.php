@@ -17,7 +17,7 @@
 	//Conectamos a la base de datos
 	require 'conexion.php';
 	//realizamos una consulta que nos permita ver si el nombre ya está en la base de datos.
-	$comparaN = "SELECT * from pokemon;";
+	$comparaN = "SELECT * from especie;";
 	$resN = $mysqli->query($comparaN);
 
 	//Guardamos las variables de nuestro formulario
@@ -26,22 +26,23 @@
 	$tipo2 = $_POST['tipo2'];
 	$region = $_POST['region'];
 
-	$encontrado = "false";
+	$encontrado = 0;
 
 	while ($fila = $resN->fetch_assoc()) {
 		if ($nombre == $fila['nombre']) {
-			$encontrado = "true";
+			$encontrado = 1;
 		}
 	}
 
 	//Elaboramos la sentencia SQL para insertar los datos en la base de datos
-	if ($encontrado == "true") {
+	if ($encontrado == 1) {
 		echo "<p class='alert alert-warning'>El Pokémon introducido ya existe en la base de datos.</p>";
-		echo "<p><a href='pokemon.php' class='btn btn-warning'>Regresar</a></p>";
+		echo "<p><a href='registrarPokemon.php' class='btn btn-warning'>Regresar</a></p>";
 	} else {
 		$sql = "INSERT INTO especie(nombre, tipo1, tipo2, region) values('$nombre', '$tipo1', '$tipo2', '$region')";
 		//Llevamos a cabo la consulta
 		$res = $mysqli->query($sql);
+		
 		//Analizamos el resultado
 		if ($res > 0) {
 			echo "<p class='alert alert-primary'>Registro correcto</p>";
@@ -50,6 +51,7 @@
 			echo "<p class=' alert alert-primary'>Error al insertar</p>";
 			echo "<p><a href='pokemon.php' class='btn btn-primary'>Regresar</a></p>";
 		}
+		
 	}
 	?>
 
