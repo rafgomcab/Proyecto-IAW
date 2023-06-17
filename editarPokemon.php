@@ -18,13 +18,13 @@ $region = $_GET['region'];
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="css/bootstrap.min.css">
 
-    <title>Registro de Pokemon</title>
+    <title>Edición de especie</title>
 </head>
 
 <body>
     <div class="container">
         <div class="row">
-            <h1>Registro de Pokemon</h1>
+            <h1>Edición de especie</h1>
         </div>
 
         <div class="row">
