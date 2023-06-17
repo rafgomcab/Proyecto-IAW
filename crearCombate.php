@@ -2,7 +2,7 @@
 //Conectamos con la base de datos
 require 'conexion.php';
 //Creamos la consulta que nos devuelve todo los pokemon individuales
-$sql = "select * from pokemon";
+$sql = "select * from pokemon;";
 //Ejecutamos la consulta
 $resultado = $mysqli->query($sql);
 //Ejecutamos una segunda consulta igual para poder usarla en el select

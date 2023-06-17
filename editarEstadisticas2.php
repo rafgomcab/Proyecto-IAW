@@ -16,21 +16,20 @@
 		require 'conexion.php';
 
 		//Guardamos las variables de nuestro formulario
-		$nombre = $_POST['nombre'];
 		$ataque = $_POST['ataque'];
 		$defensa = $_POST['defensa'];
 		$velocidad = $_POST['velocidad'];
         $nivel = $_POST['nivel'];
         $especie = $_POST['especie'];
-		
+		$id=$_POST['id'];
 
-		//Elaboramos la sentencia SQL para insertar los datos en la base de datos
-		$sql= "INSERT INTO pokemon(nombre, especie, ataque, defensa, velocidad, Nivel) values('$nombre', '$especie', '$ataque', '$defensa', '$velocidad', '$nivel')";
+		//Elaboramos la sentencia SQL para actualizar los datos en la base de datos
+		$sql= "UPDATE pokemon set ataque = $ataque, defensa = $defensa, velocidad = $velocidad, Nivel = $nivel where id=$id";
 		//Llevamos a cabo la consulta
 		$res = $mysqli->query($sql);
 		//Analizamos el resultado
 		if($res>0){
-            echo "<p class='alert alert-primary'>Registro correcto</p>";
+            echo "<p class='alert alert-primary'>Estadísticas actualizadas</p>";
             echo "<p><a href='estadisticas.php?especie=$especie' class='btn btn-primary'>Regresar</a></p>";
         }else{
             echo "<p class=' alert alert-primary'>Error al insertar</p>";

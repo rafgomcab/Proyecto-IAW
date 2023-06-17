@@ -55,6 +55,8 @@ $resultado = $mysqli->query($sql);
                         <th>Combates ganados</th>
                         <th>Combates perdidos</th>
 						<th></th>
+						<th></th>
+						<th></th>
 					</tr>
 				</thead>
 				<tbody>
@@ -68,14 +70,16 @@ $resultado = $mysqli->query($sql);
                             echo "<td>",$fila['Nivel'],"</td>";
                             echo "<td>",$fila['combates_ganados'],"</td>";
                             echo "<td>",$fila['combates_perdidos'],"</td>";
-							echo "<td><a href= 'eliminar.php?id=$fila[id]&especie=$fila[especie]' class='btn btn-danger'>Eliminar</a></td>";
+							echo "<td><a href= 'eliminarIndividual.php?id=$fila[id]&especie=$fila[especie]' class='btn btn-danger'>Eliminar Pokémon</a></td>";
+							echo "<td><a href= 'historial.php?id=$fila[id]' class='btn btn-primary'>Ver Combates</a></td>";
+							echo "<td><a href= 'editarEstadisticas.php?id=$fila[id]&especie=$fila[especie]&nombre=$fila[nombre]&ataque=$fila[ataque]&defensa=$fila[defensa]&velocidad=$fila[velocidad]&Nivel=$fila[Nivel]' class='btn btn-secondary'>Editar estadísticas</a></td>";
 						echo "</tr>";
 						}
 					?>
 				</tbody>
 			</table>
 
-            <div class="container" style="display:flex; justify-content: space-between";>
+            <div class="container" style="display:flex; justify-content: space-between; margin-top:10px;";>
                 <div class="row">
                     <p><a href="pokemon.php" class="btn btn-outline-danger">Volver al listado general</a> <a href="anadirPokemon.php?especie=<?php echo $especie ?>" class="btn btn-primary">Añadir Pokémon</a></p> 
                     <!-- Añadimos a este enlace la información de la especie para poder añadirla en el formulario -->
